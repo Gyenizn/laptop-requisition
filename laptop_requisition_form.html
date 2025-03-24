@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laptop Requisition Form</title>
+  <style>
+    body {
+      font-family: Book Antiqua, candara, book antiqua, candara;
+      background: #183B4E;
+      padding: 30px;
+    }
+
+    .form-container {
+      background: #DDA853;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 900px;
+      margin: auto;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #183B4E;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: regular;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #F5EEDC;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .submit-btn {
+      background-color: #27445D;
+      color: white;
+      padding: 15px 10px;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      width: 100%;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .submit-btn:hover {
+      background-color: #497D74;
+    }
+
+    .success-message {
+      display: none;
+      color: white;
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Laptop Requisition Form</h2>
+    <form id="laptopForm">
+      <label for="employeeName">Employee Name</label>
+      <input type="text" id="employeeName" name="employeeName" required>
+
+      <label for="employeeId">Employee ID</label>
+      <input type="text" id="employeeId" name="employeeId" required>
+
+      <label for="department">Department</label>
+      <input type="text" id="department" name="department" required>
+
+      <label for="designation">Designation</label>
+      <input type="text" id="designation" name="designation" required>
+
+      <label for="laptopType">Laptop Type</label>
+      <select id="laptopType" name="laptopType" required>
+        <option value="">-- Select Laptop Type --</option>
+        <option value="Windows">Windows</option>
+        <option value="MacBook">MacBook</option>
+        <option value="Others">Others</option>
+      </select>
+      <label for="Specification">Specification</label>
+      <textarea id="Specification" name="Specification" rows="4" required></textarea>
+
+      <label for="justification">Justification</label>
+      <textarea id="justification" name="justification" rows="4" required></textarea>
+
+      <label for="requiredDate">Required By Date</label>
+      <input type="date" id="requiredDate" name="requiredDate" required>
+
+      <button type="submit" class="submit-btn">Submit Requisition</button>
+      <div class="success-message" id="successMessage">Form submitted successfully!</div>
+    </form>
+  </div>
+  <form action="https://formspree.io/f/your-endpoint" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message"></textarea>
+    <button type="submit">Send</button>
+</form>
+
+
+  <script>
+    document.getElementById('laptopForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Basic form validation passed
+      document.getElementById('successMessage').style.display = 'block';
+      // Optional: Send form data via API or email service here
+      // Reset form after submission
+      this.reset();
+    });
+  </script>
+</body>
+</html>
